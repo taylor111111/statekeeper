@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# StateKeeper
 
-## Getting Started
+A minimal persistent state architecture demo using **Next.js App Router**, **Redux Toolkit**, and **IndexedDB** via `redux-persist`.
 
-First, run the development server:
+## 🌟 What is StateKeeper?
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+StateKeeper is a minimal, client-side persistent task manager that demonstrates how to:
+
+- Use Redux to manage state
+- Persist state to **IndexedDB** with `redux-persist`
+- Retain state **across page reloads and navigations**
+- Keep Redux state clean, minimal, and structured
+
+> It’s designed as a prototype of a larger architectural pattern for state persistence and cross-page resilience.
+
+## 🧱 Stack
+
+- [Next.js 14+ (App Router + TypeScript)](https://nextjs.org)
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [React Redux](https://react-redux.js.org/)
+- [redux-persist](https://github.com/rt2zz/redux-persist)
+- [@piotr-cz/redux-persist-idb-storage](https://www.npmjs.com/package/@piotr-cz/redux-persist-idb-storage)
+- [TailwindCSS](https://tailwindcss.com/) for styling
+
+## ⚙️ Features
+
+- Add, toggle, and delete tasks
+- Store tasks in Redux state
+- Persist state to IndexedDB (so it survives refresh & tab switch)
+- Compatible with SSR-safe patterns in Next.js
+
+## 🗂 Project Structure
+
+```
+src/
+├── app/              # App Router pages
+│   └── layout.tsx
+│   └── page.tsx
+├── components/       # UI components (AddTaskForm, TaskList)
+├── features/         # Redux slice (tasks)
+├── store/            # Redux + persist config
+├── styles/           # Tailwind global styles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Then open `http://localhost:3000` to use the demo.
 
-## Learn More
+## ✨ Notes
 
-To learn more about Next.js, take a look at the following resources:
+- This app avoids SSR errors by isolating Redux logic to client-only components
+- IndexedDB is preferred for asynchronous, large-capacity local storage
+- The design emphasizes clarity of data flow, not UI polish
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Created by **Taylor** as an experiment in state persistence, clarity of architecture, and building structure-driven UI experiences.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> "状态守护者不止是技术，它是记忆系统的延伸，是跨页面的思考，是系统呼吸感的一部分。"
