@@ -5,6 +5,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTask } from '../features/tasksSlice';
+import { channel } from '@/utils/broadcast';  // 引入广播通道
 
 export default function AddTaskForm() {
     const [text, setText] = useState('');
@@ -13,7 +14,13 @@ export default function AddTaskForm() {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (text.trim()) {
-            dispatch(addTask({ text }));
+            const newTask = {
+                id: Date.now().toString(),
+                text: text,
+                completed: false,
+            };
+            dispatch(addTask(newTask));
+            channel.postMessage({ type: 'add', payload: newTask });
             setText('');
         }
     };

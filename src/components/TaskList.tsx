@@ -5,6 +5,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
 import { toggleTask, removeTask } from '../features/tasksSlice';
+import { channel } from '@/utils/broadcast';  // 引入广播通道
 
 export default function TaskList() {
     const tasks = useSelector((state: RootState) => state.tasks.items);
@@ -25,7 +26,10 @@ export default function TaskList() {
                         <input
                             type="checkbox"
                             checked={task.completed}
-                            onChange={() => dispatch(toggleTask(task.id))}
+                            onChange={() => {
+                                dispatch(toggleTask(task.id));
+                                channel.postMessage({ type: 'toggle', payload: task.id });
+                            }}
                             className="accent-blue-600"
                         />
                         <span
@@ -37,7 +41,11 @@ export default function TaskList() {
             </span>
                     </div>
                     <button
-                        onClick={() => dispatch(removeTask(task.id))}
+                        onClick={() => {
+                            dispatch(removeTask(task.id));
+                            // 广播任务删除
+                            channel.postMessage({ type: 'remove', payload: task.id });
+                        }}
                         className="text-red-600 hover:text-red-800"
                     >
                         删除
