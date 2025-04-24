@@ -1,66 +1,84 @@
 # StateKeeper
 
-A minimal persistent state architecture demo using **Next.js App Router**, **Redux Toolkit**, and **IndexedDB** via `redux-persist`.
+> 多标签页、可持久化、实时同步的前端状态管理范式。
 
-## 🌟 What is StateKeeper?
+## 🌐 项目简介
 
-StateKeeper is a minimal, client-side persistent task manager that demonstrates how to:
+StateKeeper 是一个以 Redux 为核心，融合 IndexedDB 持久化和 BroadcastChannel 实时通信的前端状态架构 demo。
 
-- Use Redux to manage state
-- Persist state to **IndexedDB** with `redux-persist`
-- Retain state **across page reloads and navigations**
-- Keep Redux state clean, minimal, and structured
+- ✅ 支持刷新后状态不丢失
+- ✅ 多标签页状态同步
+- ✅ 使用 Redux Persist + IndexedDB
+- ✅ 使用 BroadcastChannel 进行跨标签页广播
 
-> It’s designed as a prototype of a larger architectural pattern for state persistence and cross-page resilience.
+## 📦 技术栈
 
-## 🧱 Stack
+- Next.js (App Router)
+- Redux Toolkit
+- Redux Persist
+- IndexedDB（通过 `@piotr-cz/redux-persist-idb-storage`）
+- BroadcastChannel（原生 API）
+- Tailwind CSS
 
-- [Next.js 14+ (App Router + TypeScript)](https://nextjs.org)
-- [Redux Toolkit](https://redux-toolkit.js.org/)
-- [React Redux](https://react-redux.js.org/)
-- [redux-persist](https://github.com/rt2zz/redux-persist)
-- [@piotr-cz/redux-persist-idb-storage](https://www.npmjs.com/package/@piotr-cz/redux-persist-idb-storage)
-- [TailwindCSS](https://tailwindcss.com/) for styling
+## 📸 架构图
 
-## ⚙️ Features
+![img.png](img.png)
 
-- Add, toggle, and delete tasks
-- Store tasks in Redux state
-- Persist state to IndexedDB (so it survives refresh & tab switch)
-- Compatible with SSR-safe patterns in Next.js
+## 🚀 页面说明
 
-## 🗂 Project Structure
+- `/` 主页面：任务添加、切换、删除，广播同步状态变更
+- `/observer` 观察页：实时接收其他标签页广播，展示任务统计和状态同步
+
+## 📡 状态同步机制
+
+1. 任意标签页添加 / 删除 / 切换任务
+2. 状态更新 → IndexedDB 持久化 + BroadcastChannel 发出变更消息
+3. 其他标签页接收 Broadcast 消息 → 触发 Redux 同步
+4. 所有标签页保持状态一致
+
+## 📂 目录结构
 
 ```
 src/
-├── app/              # App Router pages
-│   └── layout.tsx
-│   └── page.tsx
-├── components/       # UI components (AddTaskForm, TaskList)
-├── features/         # Redux slice (tasks)
-├── store/            # Redux + persist config
-├── styles/           # Tailwind global styles
+├── app/
+│   ├── page.tsx          // 主页面
+│   └── observer/
+│       └── page.tsx      // Observer 页面（展示任务列表和同步状态）
+├── components/
+│   ├── AddTaskForm.tsx   // 添加任务表单
+│   ├── TaskList.tsx      // 任务列表组件
+│   ├── TaskStats.tsx     // 任务统计组件
+│   └── BroadcastListener.tsx  // 监听其他标签页广播同步的组件
+├── features/
+│   └── tasksSlice.ts     // Redux Slice，管理任务列表状态
+├── store/
+│   └── index.ts          // Redux Store 配置和 persistStore 配置
+├── utils/
+│   └── broadcast.ts      // BroadcastChannel 配置与实例
+└── styles/
+    └── globals.css       // 样式文件
+
 ```
 
-## 🚀 Getting Started
+## 🧠 背后理念
+
+请参考博客：[系统感知与状态的远见](./docs/系统感知与状态的远见.md)
+
+> StateKeeper 并不是为了“刷新后不丢数据”这个功能点而设计，而是为了解决现代前端系统中的“状态无法被感知、共享、广播”的结构性问题。
+
+---
+
+## ✨ 启动方法
 
 ```bash
 npm install
 npm run dev
 ```
-
-Then open `http://localhost:3000` to use the demo.
-
-## ✨ Notes
-
-- This app avoids SSR errors by isolating Redux logic to client-only components
-- IndexedDB is preferred for asynchronous, large-capacity local storage
-- The design emphasizes clarity of data flow, not UI polish
+访问：`http://localhost:3000` 和 `http://localhost:3000/observer`
 
 ---
 
-Created by **Taylor** as an experiment in state persistence, clarity of architecture, and building structure-driven UI experiences.
+## 📬 作者
 
----
+by Taylor
 
-> "状态守护者不止是技术，它是记忆系统的延伸，是跨页面的思考，是系统呼吸感的一部分。"
