@@ -22,7 +22,7 @@ StateKeeper 是一个以 Redux 为核心，融合 IndexedDB 持久化和 Broadca
 
 ## 📸 架构图
 
-![StateKeeper 架构图](/images/readme/statekeeper-architecture.png)
+![StateKeeper 架构图](https://private-user-images.githubusercontent.com/109272291/438787482-5f6a1e30-08c6-4959-bbdb-d939e18002e7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDU5MzUzNzgsIm5iZiI6MTc0NTkzNTA3OCwicGF0aCI6Ii8xMDkyNzIyOTEvNDM4Nzg3NDgyLTVmNmExZTMwLTA4YzYtNDk1OS1iYmRiLWQ5MzllMTgwMDJlNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDI5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQyOVQxMzU3NThaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1jY2I5NTkzNDlhYjk2ODcxNTY3ZDk0MjZjMTJhMjFkZGQyYTU4NjE2MGYzMzZkZmQ2NmNkZTRiNzY2MDRhNTkwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.HC_7bSAEAnWveX4rwOfl-vrA0PYr3_3jriOEKUxHjkw)
 
 ## 🚀 页面说明
 
