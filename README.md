@@ -22,7 +22,7 @@ StateKeeper 是一个以 Redux 为核心，融合 IndexedDB 持久化和 Broadca
 
 ## 📸 架构图
 
-![StateKeeper 架构图](public/images/readme/statekeeper-architecture.png) 
+![StateKeeper 架构图](/images/readme/statekeeper-architecture.png)
 
 ## 🚀 页面说明
 
