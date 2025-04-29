@@ -62,7 +62,11 @@ src/
 
 ## 🧠 背后理念
 
-请参考博客：[系统感知与状态的远见](./docs/系统感知与状态的远见.md)
+请参考博客：
+- [StateKeeper：一个状态不会消失的前端小系统](https://huxiaoyue111111s-organization.gitbook.io/frontend-tips/statekeeper-yi-ge-zhuang-tai-bu-hui-xiao-shi-de-qian-duan-xiao-xi-tong)
+- [仓库管理员的秘密：persistor 是如何守住状态的？](https://huxiaoyue111111s-organization.gitbook.io/frontend-tips/cang-ku-guan-li-yuan-de-mi-mi-persistor-shi-ru-he-shou-zhu-zhuang-tai-de)
+- [状态广播术：如何让多个标签页同步数据？](https://huxiaoyue111111s-organization.gitbook.io/frontend-tips/zhuang-tai-guang-bo-shu-ru-he-rang-duo-ge-biao-qian-ye-tong-bu-shu-ju)
+- [系统感知与状态的远见](https://huxiaoyue111111s-organization.gitbook.io/frontend-tips/xi-tong-gan-zhi-yu-zhuang-tai-de-yuan-jian)
 
 > StateKeeper 并不是为了“刷新后不丢数据”这个功能点而设计，而是为了解决现代前端系统中的“状态无法被感知、共享、广播”的结构性问题。
 
